@@ -1,0 +1,6 @@
+framework module Pods_MoyaWithRxSwiftDemo {
+  umbrella header "Pods-MoyaWithRxSwiftDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

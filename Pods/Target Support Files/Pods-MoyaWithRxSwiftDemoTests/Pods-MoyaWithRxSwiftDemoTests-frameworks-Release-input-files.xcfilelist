@@ -1,0 +1,3 @@
+${PODS_ROOT}/Target Support Files/Pods-MoyaWithRxSwiftDemoTests/Pods-MoyaWithRxSwiftDemoTests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework
+${BUILT_PRODUCTS_DIR}/RxBlocking/RxBlocking.framework
