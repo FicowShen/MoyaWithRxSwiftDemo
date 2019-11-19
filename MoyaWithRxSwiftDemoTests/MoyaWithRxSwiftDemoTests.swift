@@ -7,28 +7,56 @@
 //
 
 import XCTest
+import Moya
+import RxBlocking
 @testable import MoyaWithRxSwiftDemo
 
 class MoyaWithRxSwiftDemoTests: XCTestCase {
 
-    override func setUp() {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
-
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testHomeAPI() {
+        guard let url = URL(string: "https://apple.com") else {
+            XCTFail()
+            return
         }
+        var api = HomeAPI(baseURL: url, endpoint: .basicInfo)
+        XCTAssertEqual(api.path, "basic_info.json")
+        api = HomeAPI(baseURL: url, endpoint: .hobbies)
+        XCTAssertEqual(api.path, "hobbies.json")
+    }
+    
+    func testHomeNetworkHelper() {
+        guard let url = URL(string: "https://apple.com"),
+            let basicInfoData = loadDataInJSONFile(fileName: "basic_info") else {
+            XCTFail()
+            return
+        }
+        
+        let provider = MoyaProvider<HomeAPI>(endpointClosure: { self.mockEndpointForAPI(api: $0, response: .networkResponse(200, basicInfoData)) },
+                                             stubClosure: { _ in .immediate })
+        let apiHelper = HomeNetworkHelper(baseURL: url, moyaProvider: provider)
+        guard let basicInfo = try? apiHelper.fetchBasicInfo().toBlocking().first() else {
+            XCTFail()
+            return
+        }
+        XCTAssertEqual(basicInfo.name, "John")
+        XCTAssertEqual(basicInfo.age, 10)
+    }
+    
+    func mockEndpointForAPI(api: TargetType, response: EndpointSampleResponse) -> Endpoint {
+        return Endpoint(url: api.baseURL.absoluteString,
+                        sampleResponseClosure: { response },
+                        method: api.method,
+                        task: api.task,
+                        httpHeaderFields: api.headers)
+    }
+    
+    func loadDataInJSONFile(fileName: String) -> Data? {
+        let bundle = Bundle(for: type(of: self))
+        guard let filePath = bundle.path(forResource: fileName, ofType: "json"),
+            let data = try? Data(contentsOf: URL(fileURLWithPath: filePath)) else {
+            return nil
+        }
+        return data
     }
 
 }

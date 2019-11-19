@@ -20,6 +20,8 @@
 		6AD4BAD42384326B00D47843 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD4BAD02384326A00D47843 /* Models.swift */; };
 		6AD4BAD52384326B00D47843 /* HomeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD4BAD12384326A00D47843 /* HomeAPI.swift */; };
 		6AD4BAD62384326B00D47843 /* SimpleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6AD4BAD22384326A00D47843 /* SimpleCell.swift */; };
+		6AD4BAD9238434E200D47843 /* hobbies.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AD4BAD7238434E200D47843 /* hobbies.json */; };
+		6AD4BADA238434E200D47843 /* basic_info.json in Resources */ = {isa = PBXBuildFile; fileRef = 6AD4BAD8238434E200D47843 /* basic_info.json */; };
 		79105D51E703E97772161EF1 /* Pods_MoyaWithRxSwiftDemoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99AE0DB2AF18702B70411086 /* Pods_MoyaWithRxSwiftDemoTests.framework */; };
 		D1A283B2119E888A2D2A72AD /* Pods_MoyaWithRxSwiftDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7806E7D120732277B93E70CF /* Pods_MoyaWithRxSwiftDemoUITests.framework */; };
 /* End PBXBuildFile section */
@@ -62,6 +64,8 @@
 		6AD4BAD02384326A00D47843 /* Models.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		6AD4BAD12384326A00D47843 /* HomeAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeAPI.swift; sourceTree = "<group>"; };
 		6AD4BAD22384326A00D47843 /* SimpleCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SimpleCell.swift; sourceTree = "<group>"; };
+		6AD4BAD7238434E200D47843 /* hobbies.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = hobbies.json; path = MoyaWithRxSwiftDemo/json/hobbies.json; sourceTree = SOURCE_ROOT; };
+		6AD4BAD8238434E200D47843 /* basic_info.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = basic_info.json; path = MoyaWithRxSwiftDemo/json/basic_info.json; sourceTree = SOURCE_ROOT; };
 		7806E7D120732277B93E70CF /* Pods_MoyaWithRxSwiftDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaWithRxSwiftDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99AE0DB2AF18702B70411086 /* Pods_MoyaWithRxSwiftDemoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaWithRxSwiftDemoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D8C71E58B035A863F8C515C /* Pods-MoyaWithRxSwiftDemoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaWithRxSwiftDemoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MoyaWithRxSwiftDemoTests/Pods-MoyaWithRxSwiftDemoTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -144,6 +148,8 @@
 			children = (
 				6AD4BAB62384323C00D47843 /* MoyaWithRxSwiftDemoTests.swift */,
 				6AD4BAB82384323C00D47843 /* Info.plist */,
+				6AD4BAD8238434E200D47843 /* basic_info.json */,
+				6AD4BAD7238434E200D47843 /* hobbies.json */,
 			);
 			path = MoyaWithRxSwiftDemoTests;
 			sourceTree = "<group>";
@@ -299,6 +305,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6AD4BADA238434E200D47843 /* basic_info.json in Resources */,
+				6AD4BAD9238434E200D47843 /* hobbies.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
