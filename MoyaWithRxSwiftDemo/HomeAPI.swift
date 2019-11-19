@@ -16,9 +16,9 @@ extension HomeAPI: TargetType {
     var path: String {
         switch endpoint {
         case .basicInfo:
-            return ""
+            return "basic_info.json"
         case .hobbies:
-            return ""
+            return "hobbies.json"
         }
     }
 
