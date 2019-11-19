@@ -1,4 +1,10 @@
 //
+//  MoyaWithRxSwiftDemoTests.swift
+//  MoyaWithRxSwiftDemoTests
+//
+//  Created by Ficow on 2019/11/19.
+//  Copyright © 2019 ficow. All rights reserved.
+//
 
 import XCTest
 @testable import MoyaWithRxSwiftDemo

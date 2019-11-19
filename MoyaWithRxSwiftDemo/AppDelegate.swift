@@ -1,4 +1,10 @@
 //
+//  AppDelegate.swift
+//  MoyaWithRxSwiftDemo
+//
+//  Created by Ficow on 2019/11/19.
+//  Copyright © 2019 ficow. All rights reserved.
+//
 
 import UIKit
 

@@ -15,27 +15,27 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="oV6-sY-fzd">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Vkc-d5-LVg">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="oV6-sY-fzd" secondAttribute="trailing" id="Vm6-bV-wY8"/>
-                            <constraint firstItem="oV6-sY-fzd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="X9x-Xj-oyF"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="oV6-sY-fzd" secondAttribute="bottom" id="m6K-wo-EUF"/>
-                            <constraint firstItem="oV6-sY-fzd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="wv4-jr-B6s"/>
+                            <constraint firstItem="Vkc-d5-LVg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="MS1-Ti-uSw"/>
+                            <constraint firstItem="Vkc-d5-LVg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Wpt-18-R8c"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Vkc-d5-LVg" secondAttribute="bottom" id="gyU-Y0-GI7"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Vkc-d5-LVg" secondAttribute="trailing" id="nfE-5Q-Pn4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outlet property="myTableView" destination="oV6-sY-fzd" id="Vhj-9l-vdU"/>
+                        <outlet property="myTableView" destination="Vkc-d5-LVg" id="bDH-Ze-e68"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="139"/>
+            <point key="canvasLocation" x="139" y="131"/>
         </scene>
     </scenes>
 </document>
