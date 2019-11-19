@@ -1,11 +1,6 @@
 import UIKit
 import RxSwift
 
-struct SimpleModel: Codable {
-    let title: String
-    let description: String?
-}
-
 func logError(_ error: Error, function: String = #function) {
     print(function + ", Error:", error.localizedDescription)
 }
@@ -14,7 +9,7 @@ class ViewController: UIViewController {
 
     @IBOutlet weak var myTableView: UITableView! {
         didSet {
-            myTableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+            myTableView.register(UITableViewCell.self, forCellReuseIdentifier: SimpleCell.reuseId)
             myTableView.delegate = self
             myTableView.dataSource = self
             myTableView.tableHeaderView = UIView()
@@ -22,7 +17,7 @@ class ViewController: UIViewController {
         }
     }
 
-    var models = [SimpleModel]()
+    var models = [Any]()
 
     private lazy var networkHelper = HomeNetworkHelper(baseURL: baseURL)
 
@@ -38,7 +33,7 @@ class ViewController: UIViewController {
 
     func loadFirstRow() {
         networkHelper
-            .fetchFirstRow()
+            .fetchBasicInfo()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { [unowned self] (model) in
                 self.models.insert(model, at: 0)
@@ -50,7 +45,7 @@ class ViewController: UIViewController {
 
     func loadSecondRow() {
         networkHelper
-            .fetchSecondRow()
+            .fetchHobbies()
             .observeOn(MainScheduler.instance)
             .subscribe(onNext: { (model) in
                 self.models.append(model)
@@ -67,12 +62,18 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self), for: indexPath)
-        cell.textLabel?.text = models[indexPath.row].title
-        cell.detailTextLabel?.text = models[indexPath.row].description
+        let cell = tableView.dequeueReusableCell(withIdentifier: SimpleCell.reuseId, for: indexPath)
+        switch models[indexPath.row] {
+        case let basicInfo as UserBasicInfo:
+            cell.textLabel?.text = basicInfo.name
+            cell.detailTextLabel?.text = basicInfo.age.description
+        case let hobbies as UserHobbies:
+            cell.textLabel?.text = hobbies.hobbies.joined(separator: ",")
+            cell.detailTextLabel?.text = nil
+        default: break
+        }
         return cell
     }
-
 
 }
 

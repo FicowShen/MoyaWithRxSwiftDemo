@@ -13,28 +13,28 @@ final class HomeNetworkHelper {
         self.moyaProvider = moyaProvider
     }
 
-    func fetchFirstRow() -> Observable<SimpleModel> {
+    func fetchBasicInfo() -> Observable<UserBasicInfo> {
         return Observable.create { (observer) -> Disposable in
-            let api = HomeAPI(baseURL: self.baseURL, endpoint: .firstRow)
+            let api = HomeAPI(baseURL: self.baseURL, endpoint: .basicInfo)
             self.requestAPI(api: api, observer: observer)
             return Disposables.create()
         }.observeOn(SerialDispatchQueueScheduler(qos: .default))
     }
 
-    func fetchSecondRow() -> Observable<SimpleModel> {
+    func fetchHobbies() -> Observable<UserHobbies> {
         return Observable.create { (observer) -> Disposable in
-            let api = HomeAPI(baseURL: self.baseURL, endpoint: .secondRow)
+            let api = HomeAPI(baseURL: self.baseURL, endpoint: .hobbies)
             self.requestAPI(api: api, observer: observer)
             return Disposables.create()
         }.observeOn(SerialDispatchQueueScheduler(qos: .default))
     }
 
-    func requestAPI(api: HomeAPI, observer: AnyObserver<SimpleModel>) {
+    func requestAPI<T: Decodable>(api: HomeAPI, observer: AnyObserver<T>) {
         self.moyaProvider.request(api) { (response) in
             switch response {
             case .success(let value):
                 do {
-                    let result = try value.map(SimpleModel.self, atKeyPath: nil, using: JSONDecoder(), failsOnEmptyData: false)
+                    let result = try value.map(T.self, atKeyPath: nil, using: JSONDecoder(), failsOnEmptyData: false)
                     observer.onNext(result)
                     observer.onCompleted()
                 } catch {

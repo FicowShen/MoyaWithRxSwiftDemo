@@ -7,17 +7,17 @@ struct HomeAPI {
 }
 
 enum HomeAPIEndpoint {
-    case firstRow
-    case secondRow
+    case basicInfo
+    case hobbies
 }
 
 extension HomeAPI: TargetType {
 
     var path: String {
         switch endpoint {
-        case .firstRow:
+        case .basicInfo:
             return ""
-        case .secondRow:
+        case .hobbies:
             return ""
         }
     }

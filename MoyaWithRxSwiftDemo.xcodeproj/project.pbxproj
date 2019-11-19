@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		21BB1F9928D2A6E20694B220 /* Pods_MoyaWithRxSwiftDemoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61EF5B4CF721EB5ADF412BE8 /* Pods_MoyaWithRxSwiftDemoUITests.framework */; };
+		6A8359DE23841B7600811AE5 /* SimpleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8359DD23841B7600811AE5 /* SimpleCell.swift */; };
+		6A8359E023841C8F00811AE5 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A8359DF23841C8F00811AE5 /* Models.swift */; };
 		89BDAA6F237AAABF00738A2B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BDAA6E237AAABF00738A2B /* AppDelegate.swift */; };
 		89BDAA71237AAABF00738A2B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BDAA70237AAABF00738A2B /* SceneDelegate.swift */; };
 		89BDAA73237AAABF00738A2B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BDAA72237AAABF00738A2B /* ViewController.swift */; };
@@ -44,6 +46,8 @@
 		04679B0C80891356D2C50EDA /* Pods-MoyaWithRxSwiftDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MoyaWithRxSwiftDemo.release.xcconfig"; path = "Target Support Files/Pods-MoyaWithRxSwiftDemo/Pods-MoyaWithRxSwiftDemo.release.xcconfig"; sourceTree = "<group>"; };
 		4D85CDF60A08BB9067D855C3 /* Pods_MoyaWithRxSwiftDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaWithRxSwiftDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61EF5B4CF721EB5ADF412BE8 /* Pods_MoyaWithRxSwiftDemoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MoyaWithRxSwiftDemoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6A8359DD23841B7600811AE5 /* SimpleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleCell.swift; sourceTree = "<group>"; };
+		6A8359DF23841C8F00811AE5 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		89BDAA6B237AAABF00738A2B /* MoyaWithRxSwiftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MoyaWithRxSwiftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BDAA6E237AAABF00738A2B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		89BDAA70237AAABF00738A2B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -152,6 +156,8 @@
 				89BDAA7C237AAAC000738A2B /* Info.plist */,
 				89BDAAA3237ABCA200738A2B /* HomeAPI.swift */,
 				89BDAAA5237ABD5000738A2B /* HomeNetworkHelper.swift */,
+				6A8359DD23841B7600811AE5 /* SimpleCell.swift */,
+				6A8359DF23841C8F00811AE5 /* Models.swift */,
 			);
 			path = MoyaWithRxSwiftDemo;
 			sourceTree = "<group>";
@@ -418,6 +424,8 @@
 				89BDAA71237AAABF00738A2B /* SceneDelegate.swift in Sources */,
 				89BDAAA6237ABD5000738A2B /* HomeNetworkHelper.swift in Sources */,
 				89BDAAA4237ABCA200738A2B /* HomeAPI.swift in Sources */,
+				6A8359DE23841B7600811AE5 /* SimpleCell.swift in Sources */,
+				6A8359E023841C8F00811AE5 /* Models.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
