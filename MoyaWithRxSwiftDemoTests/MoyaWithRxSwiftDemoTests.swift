@@ -47,11 +47,12 @@ class MoyaWithRxSwiftDemoTests: XCTestCase {
             XCTFail()
             return
         }
-        let expectedError = NSError(domain: "expectedError", code: -1, userInfo: nil)
-        let provider = MoyaProvider<HomeAPI>(endpointClosure: { self.mockEndpointForAPI(api: $0, response: .networkError(expectedError)) },
+        let error = NSError(domain: "", code: -1, userInfo: nil)
+        let expectedError = MoyaError.underlying(error, nil)
+        let provider = MoyaProvider<HomeAPI>(endpointClosure: { self.mockEndpointForAPI(api: $0, response: .networkError(error)) },
                                              stubClosure: { _ in .immediate })
         let apiHelper = HomeNetworkHelper(baseURL: url, moyaProvider: provider)
-        expectError(expectedError) {
+        expectMoyaError(expectedError) {
             _ = try apiHelper.fetchBasicInfo().toBlocking().first()
         }
     }
@@ -61,12 +62,15 @@ class MoyaWithRxSwiftDemoTests: XCTestCase {
             XCTFail()
             return
         }
-        let expectedError = NSError(domain: "", code: 404, userInfo: nil)
+
+        let statusCode = 404
+        let data = Data()
+        let expectedError = MoyaError.statusCode(.init(statusCode: statusCode, data: data))
         let provider = MoyaProvider<HomeAPI>(endpointClosure: {
-            self.mockEndpointForAPI(api: $0, response: .networkResponse(404, Data())) },
+            self.mockEndpointForAPI(api: $0, response: .networkResponse(statusCode, data)) },
         stubClosure: { _ in .immediate })
         let apiHelper = HomeNetworkHelper(baseURL: url, moyaProvider: provider)
-        expectError(expectedError) {
+        expectMoyaError(expectedError) {
             _ = try apiHelper.fetchBasicInfo().toBlocking().first()
         }
     }
@@ -88,21 +92,14 @@ class MoyaWithRxSwiftDemoTests: XCTestCase {
         return data
     }
 
-    func expectError(_ expectedError: NSError, inFailedRequest requestOperation: (() throws -> ())) {
+    func expectMoyaError(_ expectedError: MoyaError,
+                         inFailedRequest requestOperation: (() throws -> ())) {
         do {
             try requestOperation()
             XCTFail()
         } catch let error as Moya.MoyaError {
-            switch error {
-            case let .underlying(error as NSError, response):
-                if let response = response {
-                    XCTAssertEqual(expectedError.code, response.statusCode)
-                } else {
-                    XCTAssertEqual(error.code, expectedError.code)
-                }
-            default:
-                XCTFail()
-            }
+            XCTAssertEqual(expectedError.response, error.response)
+            XCTAssertEqual(expectedError.errorDescription, error.errorDescription)
         } catch {
             XCTFail()
         }
